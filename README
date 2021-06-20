@@ -1,0 +1,16 @@
+Feature engineering:
+Beside to existing features, an additional feature was created, which is DAY_OF_WEEK. It was derived from DAY, MONTH, YEAR and it represents the day of week at the date DAY/MONTH/YEAR. 
+Due to this feature addition, the response will be predicted more comprehensively. If this feature were not added, the model may have never recognized the pattern of weekdays, which causes a poor regression fit; or it would be costly in terms of parameter quantity to make the model catch this pattern. 
+
+Validation data:
+Training data was shuffled and a sample from it was separated as validation data.
+Model:
+•	A regression model using multilayer perceptron is formed via h2o package.
+•	The regression formula can be represented as
+TRX_COUNT ~ IDENTITY + REGION + DAY + MONTH + YEAR + DAY_OF_WEEK + TRX_TYPE
+
+•	Maximum iteration is determined as 200 via manually searching. 
+•	Adaptive learning is applied. Its parameter is chosen as 0.99.
+•	5 hidden layers are used and activation functions in hidden layers are chosen as “rectifier” assuming it will be advantageous in a multilayered structure.
+•	Batch learning was applied,in order to obtain a better fit and reduce the error, even if it causes longer training time.
+•	During the selection of hyperparameters, RMSE of validation prediction was considered. Also to evaluate the performance of the model, RMSE of a K-Nearest Neighbours model was used as a benchmark. (KNN model can be seen as commented in the code)
