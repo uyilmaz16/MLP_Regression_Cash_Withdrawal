@@ -1,7 +1,10 @@
+Task:
+predicting the number of cash withdrawals from 47 different ATMs of a bank using the information
+given about each ATM and the withdrawal date.
+
 Feature engineering:
 Beside to existing features, an additional feature was created, which is DAY_OF_WEEK. It was derived from DAY, MONTH, YEAR and it represents the day of week at the date DAY/MONTH/YEAR. 
 Due to this feature addition, the response will be predicted more comprehensively. If this feature were not added, the model may have never recognized the pattern of weekdays, which causes a poor regression fit; or it would be costly in terms of parameter quantity to make the model catch this pattern. 
-
 Validation data:
 Training data was shuffled and a sample from it was separated as validation data.
 Model:
